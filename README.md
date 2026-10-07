@@ -10,4 +10,3 @@ the source is kept by the developer. Saves stay in the player's own browser; the
 
 All rights reserved. You may share screenshots, videos, blueprint codes and Daily results and stream or
 monetise videos of the game; you may not reupload or redistribute the game files themselves.
-
