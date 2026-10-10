@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuprea reference: buildings, recipes and bot commands</title>
+  <meta name="description" content="Every building, recipe and bot command in Cuprea: what each machine does and costs, what each recipe makes per minute, and the bot language with examples.">
+  <link rel="canonical" href="https://noice787965-droid.github.io/cuprea/reference/">
+  <meta property="og:title" content="Cuprea reference: buildings, recipes and bot commands">
+  <meta property="og:description" content="Every building, recipe and bot command in Cuprea: what each machine does and costs, what each recipe makes per minute, and the bot language with examples.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://noice787965-droid.github.io/cuprea/reference/">
+  <meta property="og:image" content="https://noice787965-droid.github.io/cuprea/screenshot.png">
+  <meta name="theme-color" content="#b96a2e">
+  <link rel="icon" href="../play/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <style>
+:root { --paper:#f2f3f5; --panel:#fff; --ink:#1f2731; --muted:#5f6b78; --line:#d9dee5; --copper:#b96a2e; --copper-deep:#8f5222; --focus:#3c8cff; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --paper:#161a20; --panel:#1f252d; --ink:#e6eaef; --muted:#9aa5b2; --line:#2c3540; --copper:#d98a4a; --copper-deep:#f0c091; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; font: 17px/1.6 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--paper); }
+a { color: var(--copper); }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif; letter-spacing: -0.015em; text-wrap: balance; line-height: 1.2; }
+h1 { font-size: clamp(30px, 5vw, 44px); margin: 8px 0 12px; }
+h2 { font-size: 26px; margin: 40px 0 10px; }
+h3 { font-size: 19px; margin: 22px 0 6px; }
+.wrap { width: min(860px, 100% - 40px); margin-inline: auto; }
+@media (max-width: 600px) { .wrap { width: calc(100% - 32px); } }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; flex-wrap: wrap; }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; }
+.wordmark svg { width: 26px; height: 26px; }
+.top nav { display: flex; gap: 6px 18px; flex-wrap: wrap; align-items: center; font-size: 15px; }
+.top nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
+.top nav a[aria-current] { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; border-radius: 12px; font-weight: 600; text-decoration: none; }
+.btn.primary { background: linear-gradient(135deg, #cf853f, #a85f28); color: #fff !important; }
+.lede { font-size: 19px; color: var(--muted); max-width: 64ch; }
+main p, main li { max-width: 70ch; }
+.crumbs { font-size: 14px; color: var(--muted); }
+.crumbs a { color: var(--muted); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin: 14px 0; }
+.card h2, .card h3 { margin-top: 4px; }
+.goal { font-weight: 600; }
+.story { color: var(--muted); font-style: italic; }
+kbd { font: 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 2px 5px; background: var(--panel); }
+.scroll { overflow-x: auto; margin: 10px 0; }
+table { border-collapse: collapse; min-width: 100%; font-size: 15px; background: var(--panel); border-radius: 12px; overflow: hidden; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 13px; color: var(--muted); font-weight: 600; }
+table.keys th { padding-top: 14px; color: var(--ink); font-size: 14px; }
+table.keys td:first-child { width: 40%; }
+@media (max-width: 600px) {
+  table.stack, table.stack tbody { display: block; min-width: 0; }
+  table.stack thead { display: none; }
+  table.stack tr { display: block; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  table.stack td { display: block; padding: 2px 0; border: 0; text-align: left; white-space: normal; }
+  table.stack td[data-l] { display: inline-block; margin-right: 16px; }
+  table.stack td[data-l]::before { content: attr(data-l) ": "; color: var(--muted); font-size: 13px; }
+  table.keys td:first-child { width: auto; }
+}
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+code, pre { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+pre { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; overflow-x: auto; }
+.toc { columns: 2 220px; padding-left: 20px; }
+.cta { margin: 36px 0; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+footer { border-top: 1px solid var(--line); margin-top: 48px; padding-block: 22px 40px; font-size: 14px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+footer a { color: var(--muted); }
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://noice787965-droid.github.io/cuprea/reference/","url":"https://noice787965-droid.github.io/cuprea/reference/","name":"Cuprea reference: buildings, recipes and bot commands","description":"Every building, recipe and bot command in Cuprea: what each machine does and costs, what each recipe makes per minute, and the bot language with examples.","inLanguage":"en","dateModified":"2026-10-10","about":{"@type":"VideoGame","name":"Cuprea","url":"https://noice787965-droid.github.io/cuprea/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cuprea","item":"https://noice787965-droid.github.io/cuprea/"},{"@type":"ListItem","position":2,"name":"Reference","item":"https://noice787965-droid.github.io/cuprea/reference/"}]}]}</script>
+</head>
+<body>
+  <header class="wrap top">
+    <a class="wordmark" href="../" aria-label="Cuprea home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="15" fill="#b96a2e"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><path d="M13 45h13M38 19h13"/><path d="M26 45l6-6M38 19l-6 6"/></g><circle cx="32" cy="32" r="9.5" fill="#fff"/><circle cx="32" cy="32" r="3.8" fill="#b96a2e"/></svg>Cuprea</a>
+    <nav aria-label="Site"><a href="../guide/">Guide</a><a href="../reference/" aria-current="page">Reference</a><a href="../updates/">Updates</a><a class="btn primary" href="../play/?utm_source=site&amp;utm_campaign=reference">Play free</a></nav>
+  </header>
+  <main class="wrap">
+    <p class="crumbs"><a href="../">Cuprea</a> › Reference</p>
+    <h1>Buildings, recipes and bot commands</h1>
+    <p class="lede">Everything in the game in one place, taken straight from the game's own data (version 0.9.3.2).</p>
+
+    <ul>
+      <li><a href="#buildings">Buildings</a> (17)</li>
+      <li><a href="#recipes">Recipes</a> (16), with items per minute</li>
+      <li><a href="#bots">Bot commands</a> and example programs</li>
+    </ul>
+
+    <h2 id="buildings">Buildings</h2>
+    <div class="scroll"><table class="stack">
+      <thead><tr><th>Building</th><th>What it does</th><th>Cost</th><th class="num">From level</th></tr></thead>
+      <tbody>
+        <tr id="b-belt"><td><b>Belt</b></td><td>Moves items forward. Drag to lay a line; belts merge from the sides.</td><td data-l="Cost">free</td><td class="num" data-l="From level">1</td></tr>
+        <tr id="b-extractor"><td><b>Extractor</b></td><td>Place on a deposit. Mines it forever and outputs forward, one item at a time. To feed two machines from one extractor, split its belt with a Splitter (level 4).</td><td data-l="Cost">5 Wood and 5 Stone</td><td class="num" data-l="From level">1</td></tr>
+        <tr id="b-sign"><td><b>Sign</b></td><td>A label for your factory. Click it to edit the text.</td><td data-l="Cost">free</td><td class="num" data-l="From level">1</td></tr>
+        <tr id="b-furnace"><td><b>Furnace</b></td><td>Smelts ore into plates, stone into brick, iron plates into steel and sand into glass. Picks the recipe from its input.</td><td data-l="Cost">10 Stone</td><td class="num" data-l="From level">2</td></tr>
+        <tr id="b-sawmill"><td><b>Sawmill</b></td><td>Cuts 2 wood into 1 plank.</td><td data-l="Cost">10 Wood</td><td class="num" data-l="From level">2</td></tr>
+        <tr id="b-assembler"><td><b>Assembler</b></td><td>Crafts parts from several inputs. Click it to choose a recipe.</td><td data-l="Cost">10 Iron Plates and 5 Planks</td><td class="num" data-l="From level">3</td></tr>
+        <tr id="b-trash"><td><b>Trash</b></td><td>Destroys anything fed into it, from any side.</td><td data-l="Cost">5 Stone</td><td class="num" data-l="From level">3</td></tr>
+        <tr id="b-splitter"><td><b>Splitter</b></td><td>Takes items from behind and deals them out front, left and right.</td><td data-l="Cost">4 Iron Plates</td><td class="num" data-l="From level">4</td></tr>
+        <tr id="b-merger"><td><b>Merger</b></td><td>Combines items from the back, left and right into one output, taking turns fairly.</td><td data-l="Cost">4 Iron Plates</td><td class="num" data-l="From level">4</td></tr>
+        <tr id="b-tunnel"><td><b>Tunnel</b></td><td>Carries items underground. Place an entrance, then an exit up to 4 tiles ahead facing the same way.</td><td data-l="Cost">4 Iron Plates and 2 Planks</td><td class="num" data-l="From level">4</td></tr>
+        <tr id="b-filter"><td><b>Filter</b></td><td>The chosen item passes straight through; everything else leaves by the sides.</td><td data-l="Cost">4 Iron Plates and 4 Wire</td><td class="num" data-l="From level">5</td></tr>
+        <tr id="b-depot"><td><b>Depot</b></td><td>Stores up to 200 items. Belts and bots can fill it; it unloads onto a belt at its front.</td><td data-l="Cost">10 Iron Plates and 10 Bricks</td><td class="num" data-l="From level">5</td></tr>
+        <tr id="b-hubext"><td><b>Hub Extension</b></td><td>Part of the Hub. Place it touching the Hub or another connected extension: anything belted in, from any side, is delivered.</td><td data-l="Cost">10 Bricks and 5 Iron Plates</td><td class="num" data-l="From level">5</td></tr>
+        <tr id="b-fabricator"><td><b>Fabricator</b></td><td>Builds advanced components from three inputs. Click it to choose a recipe.</td><td data-l="Cost">10 Steel, 20 Bricks and 5 Circuits</td><td class="num" data-l="From level">6</td></tr>
+        <tr id="b-botbay"><td><b>Bot Bay</b></td><td>Home of one programmable bot. Click the bay to write its program.</td><td data-l="Cost">10 Steel, 10 Circuits and 10 Gears</td><td class="num" data-l="From level">6</td></tr>
+        <tr id="b-priority"><td><b>Priority Splitter</b></td><td>Sends items straight ahead while it can. Only when the front is blocked do they go out the sides: an overflow valve.</td><td data-l="Cost">6 Iron Plates and 2 Wire</td><td class="num" data-l="From level">7</td></tr>
+        <tr id="b-post"><td><b>Trading Post</b></td><td>Sells anything fed into it, from any side. Pays more the further it is from the Hub: ×1 nearby, up to ×2 at 80 tiles. Sales here don't count toward level goals.</td><td data-l="Cost">20 Bricks, 5 Steel and 10 Planks</td><td class="num" data-l="From level">8</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="recipes">Recipes</h2>
+    <p>"Per minute" is what one machine makes when it is never short of input. Need more? Build more machines
+    side by side, or use the planner in the game's Recipe book.</p>
+    <div class="scroll"><table class="stack">
+      <thead><tr><th>Makes</th><th>From</th><th>In</th><th class="num">Seconds</th><th class="num">Per minute</th><th class="num">From level</th></tr></thead>
+      <tbody>
+        <tr id="r-brick"><td><b>Brick</b></td><td data-l="From">2 Stone</td><td data-l="In">Furnace</td><td class="num" data-l="Seconds">2</td><td class="num" data-l="Per minute">30</td><td class="num" data-l="From level">2</td></tr>
+        <tr id="r-copper_plate"><td><b>Copper Plate</b></td><td data-l="From">1 Copper Ore</td><td data-l="In">Furnace</td><td class="num" data-l="Seconds">2</td><td class="num" data-l="Per minute">30</td><td class="num" data-l="From level">2</td></tr>
+        <tr id="r-iron_plate"><td><b>Iron Plate</b></td><td data-l="From">1 Iron Ore</td><td data-l="In">Furnace</td><td class="num" data-l="Seconds">2</td><td class="num" data-l="Per minute">30</td><td class="num" data-l="From level">2</td></tr>
+        <tr id="r-planks"><td><b>Planks</b></td><td data-l="From">2 Wood</td><td data-l="In">Sawmill</td><td class="num" data-l="Seconds">2</td><td class="num" data-l="Per minute">30</td><td class="num" data-l="From level">2</td></tr>
+        <tr id="r-steel"><td><b>Steel</b></td><td data-l="From">2 Iron Plates</td><td data-l="In">Furnace</td><td class="num" data-l="Seconds">3</td><td class="num" data-l="Per minute">20</td><td class="num" data-l="From level">2</td></tr>
+        <tr id="r-circuit"><td><b>Circuit</b></td><td data-l="From">1 Iron Plate and 3 Wire</td><td data-l="In">Assembler</td><td class="num" data-l="Seconds">3</td><td class="num" data-l="Per minute">20</td><td class="num" data-l="From level">3</td></tr>
+        <tr id="r-frame"><td><b>Frame</b></td><td data-l="From">2 Gears and 2 Planks</td><td data-l="In">Assembler</td><td class="num" data-l="Seconds">4</td><td class="num" data-l="Per minute">15</td><td class="num" data-l="From level">3</td></tr>
+        <tr id="r-gear"><td><b>Gear</b></td><td data-l="From">2 Iron Plates</td><td data-l="In">Assembler</td><td class="num" data-l="Seconds">2</td><td class="num" data-l="Per minute">30</td><td class="num" data-l="From level">3</td></tr>
+        <tr id="r-wire"><td><b>2 Wire</b></td><td data-l="From">1 Copper Plate</td><td data-l="In">Assembler</td><td class="num" data-l="Seconds">1.5</td><td class="num" data-l="Per minute">80</td><td class="num" data-l="From level">3</td></tr>
+        <tr id="r-motor"><td><b>Motor</b></td><td data-l="From">2 Gears, 1 Steel and 4 Wire</td><td data-l="In">Fabricator</td><td class="num" data-l="Seconds">5</td><td class="num" data-l="Per minute">12</td><td class="num" data-l="From level">6</td></tr>
+        <tr id="r-processor"><td><b>Processor</b></td><td data-l="From">2 Circuits, 2 Copper Plates and 1 Steel</td><td data-l="In">Fabricator</td><td class="num" data-l="Seconds">6</td><td class="num" data-l="Per minute">10</td><td class="num" data-l="From level">6</td></tr>
+        <tr id="r-robot"><td><b>Robot</b></td><td data-l="From">1 Motor, 1 Processor and 1 Frame</td><td data-l="In">Fabricator</td><td class="num" data-l="Seconds">8</td><td class="num" data-l="Per minute">7.5</td><td class="num" data-l="From level">6</td></tr>
+        <tr id="r-glass"><td><b>Glass</b></td><td data-l="From">2 Sand</td><td data-l="In">Furnace</td><td class="num" data-l="Seconds">2.5</td><td class="num" data-l="Per minute">24</td><td class="num" data-l="From level">9</td></tr>
+        <tr id="r-lens"><td><b>Lens</b></td><td data-l="From">1 Glass and 1 Copper Plate</td><td data-l="In">Assembler</td><td class="num" data-l="Seconds">3</td><td class="num" data-l="Per minute">20</td><td class="num" data-l="From level">9</td></tr>
+        <tr id="r-sensor"><td><b>Sensor</b></td><td data-l="From">1 Lens, 1 Circuit and 2 Wire</td><td data-l="In">Fabricator</td><td class="num" data-l="Seconds">5</td><td class="num" data-l="Per minute">12</td><td class="num" data-l="From level">10</td></tr>
+        <tr id="r-drone"><td><b>Drone</b></td><td data-l="From">1 Robot, 1 Sensor and 1 Motor</td><td data-l="In">Fabricator</td><td class="num" data-l="Seconds">10</td><td class="num" data-l="Per minute">6</td><td class="num" data-l="From level">11</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="bots">Bot commands</h2>
+    <p>From level 6 a Bot Bay holds one bot you program with
+    one command per line. Bots fly over everything, so they can stock machines, empty depots and run outposts.</p>
+    <div class="scroll"><table class="stack">
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>goto x y</code></td><td>fly to a tile (bots fly over everything)</td></tr>
+        <tr><td><code>goto hub / goto home</code></td><td>fly to the hub, or back to this bay</td></tr>
+        <tr><td><code>goto nearest depot</code></td><td>fly to the closest building of a type (depot, assembler, furnace, extractor, …)</td></tr>
+        <tr><td><code>fill item|any</code></td><td>keep taking from the building below until the bot is full</td></tr>
+        <tr><td><code>empty [item|all]</code></td><td>keep dropping into the building below until the bot is empty</td></tr>
+        <tr><td><code>set name 0 / add name 1</code></td><td>store a number in a variable (add can be negative)</td></tr>
+        <tr><td><code>if name &gt;= 10 jump label</code></td><td>check a variable</td></tr>
+        <tr><td><code>take item [n]</code></td><td>pick up from the building below: hub, depot, a machine's output, an extractor</td></tr>
+        <tr><td><code>take any [n]</code></td><td>pick up whatever is there</td></tr>
+        <tr><td><code>take wire 4 / take gear 2</code></td><td>several takes in a row carry a mix; the cargo limit counts every kind together. The panel shows what the bot holds and why a line did nothing</td></tr>
+        <tr><td><code>drop [item|all] [n]</code></td><td>put cargo into the building below: hub, depot, a machine's input, trash</td></tr>
+        <tr><td><code>wait seconds</code></td><td>pause</td></tr>
+        <tr><td><code>name:</code></td><td>a label to jump to</td></tr>
+        <tr><td><code>jump name</code></td><td>continue from a label</td></tr>
+        <tr><td><code>if carrying &lt; 5 jump name</code></td><td>jump when the cargo count matches (&lt; &gt; &lt;= &gt;= = !=)</td></tr>
+        <tr><td><code>if hub item &gt; 50 jump name</code></td><td>check hub storage</td></tr>
+        <tr><td><code>if here item = 0 jump name</code></td><td>check the building below (use any for all items)</td></tr>
+        <tr><td><code>stop</code></td><td>end the program</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Example programs (the same ones the Bot Bay offers)</h3>
+    <p><b>Stock a machine</b></p>
+    <pre><code># Keep a machine stocked from the hub.
+# Change 5 3 to your machine's tile (hover it to see x y).
+goto hub
+take iron_plate 20
+goto 5 3
+drop all
+wait 5</code></pre>
+    <p><b>Outpost ferry</b></p>
+    <pre><code># Bring everything from a remote depot back to the hub.
+# Change 40 12 to your depot's tile.
+start:
+goto 40 12
+take any
+if carrying = 0 jump idle
+goto hub
+drop all
+jump start
+idle:
+wait 5
+jump start</code></pre>
+    <p><b>Nearest depot run</b></p>
+    <pre><code># Fill up at the closest depot, unload at the hub, count the trips.
+set trips 0
+start:
+goto nearest depot
+fill any
+goto hub
+empty
+add trips 1
+if trips &lt; 100 jump start
+stop</code></pre>
+    <p><b>Collect output</b></p>
+    <pre><code># Collect finished parts from a machine and deliver them.
+# Change 8 2 to your machine's tile.
+start:
+goto 8 2
+take any
+if carrying &lt; 10 jump start
+goto hub
+drop all</code></pre>
+
+    <div class="cta"><a class="btn primary" href="../play/?utm_source=site&amp;utm_campaign=reference">Play Cuprea free in your browser</a><span>No download, no account. Works on phones.</span></div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>Cuprea is made by one person. Version 0.9.3.2.</span>
+      <a href="../">Home</a><a href="../guide/">Guide</a><a href="../reference/">Reference</a><a href="../updates/">Updates</a>
+      <a href="../privacy.html">Privacy &amp; terms</a><a href="https://discord.gg/RqNg62fHZJ" rel="noopener">Discord (13+)</a>
+    </div>
+  </footer>
+</body>
+</html>

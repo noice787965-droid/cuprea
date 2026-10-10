@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to play Cuprea: beginner's guide and all levels</title>
+  <meta name="description" content="How to play Cuprea, the free browser factory game: your first five minutes, the controls on computer and phone, and the goal, unlocks and tips for all 11 levels.">
+  <link rel="canonical" href="https://noice787965-droid.github.io/cuprea/guide/">
+  <meta property="og:title" content="How to play Cuprea: beginner's guide and all levels">
+  <meta property="og:description" content="How to play Cuprea, the free browser factory game: your first five minutes, the controls on computer and phone, and the goal, unlocks and tips for all 11 levels.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://noice787965-droid.github.io/cuprea/guide/">
+  <meta property="og:image" content="https://noice787965-droid.github.io/cuprea/screenshot.png">
+  <meta name="theme-color" content="#b96a2e">
+  <link rel="icon" href="../play/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <style>
+:root { --paper:#f2f3f5; --panel:#fff; --ink:#1f2731; --muted:#5f6b78; --line:#d9dee5; --copper:#b96a2e; --copper-deep:#8f5222; --focus:#3c8cff; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --paper:#161a20; --panel:#1f252d; --ink:#e6eaef; --muted:#9aa5b2; --line:#2c3540; --copper:#d98a4a; --copper-deep:#f0c091; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; font: 17px/1.6 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--paper); }
+a { color: var(--copper); }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif; letter-spacing: -0.015em; text-wrap: balance; line-height: 1.2; }
+h1 { font-size: clamp(30px, 5vw, 44px); margin: 8px 0 12px; }
+h2 { font-size: 26px; margin: 40px 0 10px; }
+h3 { font-size: 19px; margin: 22px 0 6px; }
+.wrap { width: min(860px, 100% - 40px); margin-inline: auto; }
+@media (max-width: 600px) { .wrap { width: calc(100% - 32px); } }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; flex-wrap: wrap; }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; }
+.wordmark svg { width: 26px; height: 26px; }
+.top nav { display: flex; gap: 6px 18px; flex-wrap: wrap; align-items: center; font-size: 15px; }
+.top nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
+.top nav a[aria-current] { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; border-radius: 12px; font-weight: 600; text-decoration: none; }
+.btn.primary { background: linear-gradient(135deg, #cf853f, #a85f28); color: #fff !important; }
+.lede { font-size: 19px; color: var(--muted); max-width: 64ch; }
+main p, main li { max-width: 70ch; }
+.crumbs { font-size: 14px; color: var(--muted); }
+.crumbs a { color: var(--muted); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin: 14px 0; }
+.card h2, .card h3 { margin-top: 4px; }
+.goal { font-weight: 600; }
+.story { color: var(--muted); font-style: italic; }
+kbd { font: 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 2px 5px; background: var(--panel); }
+.scroll { overflow-x: auto; margin: 10px 0; }
+table { border-collapse: collapse; min-width: 100%; font-size: 15px; background: var(--panel); border-radius: 12px; overflow: hidden; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 13px; color: var(--muted); font-weight: 600; }
+table.keys th { padding-top: 14px; color: var(--ink); font-size: 14px; }
+table.keys td:first-child { width: 40%; }
+@media (max-width: 600px) {
+  table.stack, table.stack tbody { display: block; min-width: 0; }
+  table.stack thead { display: none; }
+  table.stack tr { display: block; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  table.stack td { display: block; padding: 2px 0; border: 0; text-align: left; white-space: normal; }
+  table.stack td[data-l] { display: inline-block; margin-right: 16px; }
+  table.stack td[data-l]::before { content: attr(data-l) ": "; color: var(--muted); font-size: 13px; }
+  table.keys td:first-child { width: auto; }
+}
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+code, pre { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+pre { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; overflow-x: auto; }
+.toc { columns: 2 220px; padding-left: 20px; }
+.cta { margin: 36px 0; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+footer { border-top: 1px solid var(--line); margin-top: 48px; padding-block: 22px 40px; font-size: 14px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+footer a { color: var(--muted); }
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://noice787965-droid.github.io/cuprea/guide/","url":"https://noice787965-droid.github.io/cuprea/guide/","name":"How to play Cuprea: beginner's guide and all levels","description":"How to play Cuprea, the free browser factory game: your first five minutes, the controls on computer and phone, and the goal, unlocks and tips for all 11 levels.","inLanguage":"en","dateModified":"2026-10-10","about":{"@type":"VideoGame","name":"Cuprea","url":"https://noice787965-droid.github.io/cuprea/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cuprea","item":"https://noice787965-droid.github.io/cuprea/"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://noice787965-droid.github.io/cuprea/guide/"}]}]}</script>
+</head>
+<body>
+  <header class="wrap top">
+    <a class="wordmark" href="../" aria-label="Cuprea home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="15" fill="#b96a2e"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><path d="M13 45h13M38 19h13"/><path d="M26 45l6-6M38 19l-6 6"/></g><circle cx="32" cy="32" r="9.5" fill="#fff"/><circle cx="32" cy="32" r="3.8" fill="#b96a2e"/></svg>Cuprea</a>
+    <nav aria-label="Site"><a href="../guide/" aria-current="page">Guide</a><a href="../reference/">Reference</a><a href="../updates/">Updates</a><a class="btn primary" href="../play/?utm_source=site&amp;utm_campaign=guide">Play free</a></nav>
+  </header>
+  <main class="wrap">
+    <p class="crumbs"><a href="../">Cuprea</a> › Guide</p>
+    <h1>How to play Cuprea</h1>
+    <p class="lede">A beginner's guide to the free factory game: the first five minutes, the controls, and every level's goal, unlocks and tips.</p>
+
+    <p>Cuprea is a factory automation game. You place <b>Extractors</b> on deposits in the ground, lay
+    <b>belts</b> that carry what they dig into the <b>Hub</b>, and build machines that turn raw materials into
+    better ones. Each level asks the Hub for a set of items; meeting the goal unlocks new buildings. There are
+    11 levels, then freeplay with goals that keep growing. Nothing attacks you and the level goals have
+    no time limit: the puzzle is laying out a factory that keeps up.</p>
+
+    <h2 id="start">Your first five minutes</h2>
+    <ol>
+      <li>Pick the <b>Extractor</b> <kbd>2</kbd> and place it on a <b>wood</b> deposit (green circles).</li>
+      <li>Place another Extractor on a <b>stone</b> deposit (grey hexagons).</li>
+      <li>Lay <b>Belts</b> <kbd>1</kbd> from each extractor into the Hub. Extractors push out of their coloured side; <kbd>R</kbd> rotates. <kbd>Ctrl</kbd>+drag lays a whole line.</li>
+      <li>Items are arriving! Keep them flowing until the level goal is met.</li>
+    </ol>
+    <p>That is level 1: deliver 20 Wood and 20 Stone. The deposits in the ground are Wood, Stone, Iron Ore, Copper Ore and Sand
+    (sand only 48+ tiles from the Hub, so it comes later).</p>
+
+    <h2 id="controls">Controls</h2>
+    <p>The same list is in the game: press <kbd>?</kbd>, or open the menu on a phone.</p>
+    <h3>On a computer</h3>
+    <div class="scroll"><table class="keys">
+      <tr><th colspan="2">Build</th></tr>
+      <tr><td>Pick a tool</td><td><kbd>1</kbd>–<kbd>=</kbd> <kbd>[</kbd> <kbd>]</kbd> <kbd>\</kbd> <kbd>;</kbd> <kbd>,</kbd> or click the toolbar</td></tr>
+      <tr><td>Place</td><td>click · drag to paint</td></tr>
+      <tr><td>Straight line</td><td><kbd>Ctrl</kbd>+drag</td></tr>
+      <tr><td>Rotate</td><td><kbd>R</kbd> · <kbd>Shift</kbd>+<kbd>R</kbd> the other way</td></tr>
+      <tr><td>Recipe or filter item</td><td><kbd>T</kbd> · or the bar above the toolbar</td></tr>
+      <tr><td>Remove</td><td>right-click · right-drag</td></tr>
+      <tr><td>Copy a building's tool</td><td><kbd>Q</kbd> while hovering</td></tr>
+      <tr><td>Undo / redo</td><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td></tr>
+      <tr><td>Cancel anything</td><td><kbd>Esc</kbd></td></tr>
+      <tr><th colspan="2">Select and copy</th></tr>
+      <tr><td>Select buildings</td><td><kbd>Ctrl</kbd>+drag with no tool</td></tr>
+      <tr><td>Copy / cut</td><td><kbd>Ctrl</kbd>+<kbd>C</kbd> / <kbd>Ctrl</kbd>+<kbd>X</kbd></td></tr>
+      <tr><td>Paste (R rotates)</td><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td></tr>
+      <tr><td>Delete the selection</td><td><kbd>Del</kbd></td></tr>
+      <tr><td>Keep the copy as a blueprint</td><td><kbd>L</kbd></td></tr>
+      <tr><th colspan="2">Camera</th></tr>
+      <tr><td>Pan</td><td>drag with no tool · <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> · middle-drag</td></tr>
+      <tr><td>Zoom</td><td>scroll wheel</td></tr>
+      <tr><td>Back to the Hub</td><td><kbd>H</kbd></td></tr>
+      <tr><td>Map and bookmarks</td><td><kbd>M</kbd></td></tr>
+      <tr><td>Flow view (belts by fullness, machines by how busy)</td><td><kbd>O</kbd></td></tr>
+      <tr><th colspan="2">Panels</th></tr>
+      <tr><td>Recipe book and planner</td><td><kbd>B</kbd></td></tr>
+      <tr><td>Pause / resume the factory</td><td><kbd>Space</kbd></td></tr>
+      <tr><td>Close any window</td><td><kbd>Esc</kbd> or its own key again</td></tr>
+      <tr><td>Upgrades</td><td><kbd>U</kbd></td></tr>
+      <tr><td>Production stats</td><td><kbd>P</kbd></td></tr>
+      <tr><td>Blueprints</td><td><kbd>L</kbd></td></tr>
+      <tr><td>Contracts</td><td><kbd>C</kbd></td></tr>
+      <tr><td>Notes for this factory</td><td><kbd>N</kbd></td></tr>
+      <tr><td>This screen</td><td><kbd>?</kbd></td></tr>
+    </table></div>
+    <h3>On a phone or tablet</h3>
+    <div class="scroll"><table class="keys">
+      <tr><th colspan="2">Build</th></tr>
+      <tr><td>Pick a tool</td><td>tap <b>Build</b>, then a building</td></tr>
+      <tr><td>Place</td><td>tap a tile to park the ghost · tap the ghost (or <b>＋ Place</b>) to build it · drag the ghost to move it</td></tr>
+      <tr><td>Lay belts</td><td>park a belt ghost, then <b>drag it</b>: belts follow your finger and turn with it · or <b>＋ Place</b> again and again · or hold any tile for a moment, then drag</td></tr>
+      <tr><td>Straight line</td><td><b>Line</b> button, then drag</td></tr>
+      <tr><td>Rotate</td><td><b>⟳</b> button</td></tr>
+      <tr><td>Remove</td><td><b>✕</b> button, then tap things · drag from a building to clear a whole stretch · <b>✓ Done</b> when you're finished</td></tr>
+      <tr><th colspan="2">Select and copy</th></tr>
+      <tr><td>Select buildings</td><td><b>▭</b> button, then drag</td></tr>
+      <tr><th colspan="2">Camera</th></tr>
+      <tr><td>Pan</td><td>drag with one finger, any time</td></tr>
+      <tr><td>Zoom</td><td>pinch</td></tr>
+    </table></div>
+    <h3>How things work</h3>
+    <ul>
+      <li><b>Machines:</b> click one to see its recipe, what it holds, and why it's stuck</li>
+      <li><b>Badges:</b> amber dots = waiting for input · red bar = output blocked · a crossed-out item = wrong item: the machine can't use what's on its belt, and the belt behind it waits</li>
+      <li><b>Belts:</b> join from the sides · one belt carries 240 items/min</li>
+      <li><b>Hub:</b> keeps up to 100 of each item · the rest sells for coins · Hub Extensions (level 5) make it bigger: place them touching the Hub, in any shape</li>
+      <li><b>Costs:</b> buildings cost items from the Hub · upgrades cost coins</li>
+      <li><b>Tunnels:</b> place the entrance, then the exit up to 4 tiles ahead, facing the same way</li>
+      <li><b>Far deposits:</b> richer the further from the Hub, up to ×3</li>
+    </ul>
+
+    <h2 id="levels">All 11 levels</h2>
+    <ol class="toc">
+      <li><a href="#level-1">Level 1: Foundations</a></li>
+      <li><a href="#level-2">Level 2: Smelting</a></li>
+      <li><a href="#level-3">Level 3: Machining</a></li>
+      <li><a href="#level-4">Level 4: Masonry</a></li>
+      <li><a href="#level-5">Level 5: Electronics</a></li>
+      <li><a href="#level-6">Level 6: Motors</a></li>
+      <li><a href="#level-7">Level 7: Processors</a></li>
+      <li><a href="#level-8">Level 8: Robotics</a></li>
+      <li><a href="#level-9">Level 9: Glassworks</a></li>
+      <li><a href="#level-10">Level 10: Sensors</a></li>
+      <li><a href="#level-11">Level 11: Drones</a></li>
+    </ol>
+
+    <section class="card" id="level-1">
+      <h2>Level 1: Foundations</h2>
+      <p class="goal">Goal: deliver 20 Wood and 20 Stone to the Hub.</p>
+      <p>Finishing it unlocks Furnace and Sawmill.</p>
+      <p><a href="#start">Tips for this level are at the top of the page.</a></p>
+      
+      
+      <p class="story">Dispatch: “You're the first crew on Cuprea. Wood and stone first; everything else stands on them.”</p>
+    </section>
+    <section class="card" id="level-2">
+      <h2>Level 2: Smelting</h2>
+      <p class="goal">Goal: deliver 30 Iron Plates and 30 Copper Plates to the Hub.</p>
+      <p>Finishing it unlocks Assembler and Trash.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>Put an Extractor on <b>iron ore</b> and belt the ore into a <b>Furnace</b> <kbd>4</kbd>.</li>
+        <li>Belt the Furnace's output (its coloured side) into the Hub.</li>
+        <li>Do the same with <b>copper ore</b> to make copper plates.</li>
+        <li>Finish the goal to unlock the Assembler. From here the Recipe book <kbd>B</kbd> helps you plan.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “The ore here runs rich, and the ground is the colour of copper for a reason. Smelt it. The Hub pays for anything past its shelves.”</p>
+    </section>
+    <section class="card" id="level-3">
+      <h2>Level 3: Machining</h2>
+      <p class="goal">Goal: deliver 30 Gears and 30 Planks to the Hub.</p>
+      <p>Finishing it unlocks Splitter, Merger and Tunnel.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>A <b>Sawmill</b> <kbd>5</kbd> turns 2 wood into 1 plank. It eats 60 wood a minute, so feed it two extractors.</li>
+        <li>An <b>Assembler</b> <kbd>6</kbd> set to Gear eats 60 iron plates a minute: two furnaces' worth. Belts can join a belt from the side.</li>
+        <li>Press <kbd>B</kbd> for the Recipe book (<kbd>B</kbd> or <kbd>Esc</kbd> closes it). Its planner tells you how many machines any rate needs.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “Gears and planks. Two furnaces feed one assembler: the first real ratio. Get it right once, then copy it.”</p>
+    </section>
+    <section class="card" id="level-4">
+      <h2>Level 4: Masonry</h2>
+      <p class="goal">Goal: deliver 40 Bricks and 20 Steel to the Hub.</p>
+      <p>Finishing it unlocks Filter, Depot and Hub Extension.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li><b>Steel</b> comes from a Furnace fed with iron plates: furnace → furnace.</li>
+        <li>New: a <b>Merger</b> joins up to three belts into one, a <b>Splitter</b> shares one belt three ways, a <b>Tunnel</b> crosses under other belts.</li>
+        <li>Copy a line that works: <kbd>Ctrl</kbd>+drag to select it, <kbd>Ctrl</kbd>+<kbd>C</kbd>, then <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste a second one and double your output.</li>
+      </ul>
+      
+      <p>Contracts are open: optional timed orders for bonus coins. Look for the Contracts button.</p>
+      <p class="story">Dispatch: “Brick and steel: the Hub wants to grow. The survey says the deposits get richer the further out you go. Belts are free; use them.”</p>
+    </section>
+    <section class="card" id="level-5">
+      <h2>Level 5: Electronics</h2>
+      <p class="goal">Goal: deliver 80 Wire and 25 Circuits to the Hub.</p>
+      <p>Finishing it unlocks Fabricator and Bot Bay.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>Circuits need iron plates <b>and</b> wire in the same Assembler: bring one in from the back and the other from a side.</li>
+        <li>Deposits far from the Hub are richer, up to ×3. Belts are free, so run a long line out there; a <b>Depot</b> <kbd>=</kbd> holds 200 items at the far end: build an outpost.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “Wire and circuits. From here on, machines want more than one thing at a time. The bots can keep them fed, if you teach them.”</p>
+    </section>
+    <section class="card" id="level-6">
+      <h2>Level 6: Motors</h2>
+      <p class="goal">Goal: deliver 10 Motors and 10 Frames to the Hub.</p>
+      <p>Finishing it unlocks Priority Splitter.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>The <b>Fabricator</b> <kbd>[</kbd> builds Motors from gears, steel and wire. Press <kbd>B</kbd> and plan 12 Motors a minute to see what that takes.</li>
+        <li>Place a <b>Bot Bay</b> <kbd>]</kbd>, click it, load the &quot;Stock a machine&quot; example and press Run. Bots fly over everything.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “Motors and frames. Overflow is a design decision now, not an accident.”</p>
+    </section>
+    <section class="card" id="level-7">
+      <h2>Level 7: Processors</h2>
+      <p class="goal">Goal: deliver 10 Processors and 40 Steel to the Hub.</p>
+      <p>Finishing it unlocks Trading Post.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>New: the <b>Priority Splitter</b> <kbd>\</kbd> sends items forward while it can and only overflows to the sides. Put one before a machine and send the overflow to a Depot or the Hub.</li>
+        <li>Processors take three inputs: circuits, copper plates and steel. Merge belts into the machine, or let a bot keep it stocked.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “Processors. Someone out past the horizon is buying; the further from the Hub you trade, the better they pay.”</p>
+    </section>
+    <section class="card" id="level-8">
+      <h2>Level 8: Robotics</h2>
+      <p class="goal">Goal: deliver 5 Robots to the Hub.</p>
+      <p>Finishing it unlocks the Glass recipe and the Lens recipe.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>New: the <b>Trading Post</b> <kbd>;</kbd> sells whatever you feed it, paying up to ×2 far from the Hub. Sales there don't count toward goals, but coins buy upgrades.</li>
+        <li>A Robot is a motor, a processor and a frame. Plan it with <kbd>B</kbd>. After this, the world gets bigger.</li>
+      </ul>
+      <p><b>The world gets bigger.</b> Sand deposits lie 48+ tiles from the Hub. Furnaces turn it into Glass.</p>
+      
+      <p class="story">Dispatch: “Robots. The long-range survey came back: the sand fields are real. Glass, then lenses, then eyes.”</p>
+    </section>
+    <section class="card" id="level-9">
+      <h2>Level 9: Glassworks</h2>
+      <p class="goal">Goal: deliver 40 Glass and 20 Lenses to the Hub.</p>
+      <p>Finishing it unlocks the Sensor recipe.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li><b>Glass</b> is smelted from Sand in a Furnace. Sand deposits lie 48+ tiles out (yellow on the map): a long belt, or Depots and Bots, bring it home.</li>
+        <li>A <b>Lens</b> is glass plus a copper plate in an Assembler.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “Glass and lenses. Next come sensors: the first parts of this factory that can look back at you.”</p>
+    </section>
+    <section class="card" id="level-10">
+      <h2>Level 10: Sensors</h2>
+      <p class="goal">Goal: deliver 15 Sensors and 20 Processors to the Hub.</p>
+      <p>Finishing it unlocks the Drone recipe.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>A <b>Sensor</b> is a lens, a circuit and two wire in a Fabricator. Three inputs again: bots are good at this.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “Sensors. Give them wings: a drone is a robot that gets to leave.”</p>
+    </section>
+    <section class="card" id="level-11">
+      <h2>Level 11: Drones</h2>
+      <p class="goal">Goal: deliver 3 Drones to the Hub.</p>
+      <p>Finishing it opens freeplay.</p>
+      <h3>Tips</h3>
+      <ul>
+        <li>A <b>Drone</b> is a robot, a sensor and a motor: the whole factory in one item. After this comes Freeplay: endless goals, and a title every 5 levels.</li>
+      </ul>
+      
+      
+      <p class="story">Dispatch: “Three drones, airborne, and the first pictures of what lies beyond Cuprea's horizon. Whatever is out there, you'll be the one who builds the way to it. Keep going.”</p>
+    </section>
+
+    <h2 id="freeplay">After level 11: freeplay</h2>
+    <p>Freeplay alternates two kinds of goal: deliver a pile of advanced items (drones, sensors, robots and more),
+    or hold a throughput, like a number of gears a minute for 60 seconds. The second is an optimisation puzzle
+    rather than a build-more one. Every recipe, with how much one machine makes per minute, is in the
+    <a href="../reference/#recipes">reference</a>.</p>
+
+    <h2 id="tips">General tips</h2>
+    <ul>
+      <li>Work out ratios with the Recipe book's planner (<kbd>B</kbd>): it says how many machines a rate needs.</li>
+      <li>A machine with a crossed-out item on it received something its recipe can't use, and everything behind it on
+      the belt waits. Click it: it says what it needs and how to make it.</li>
+      <li>Deposits far from the Hub are richer, up to ×3. A Depot (holds 200 items) at the end of a long belt makes an outpost.</li>
+      <li>Optional Contracts (from level 5) are timed orders that pay bonus coins; coins buy upgrades.</li>
+      <li>Your factory saves in your browser. Settings → Export makes a backup file, and Profiles can sync a world to another device with a code.</li>
+    </ul>
+
+    <div class="cta"><a class="btn primary" href="../play/?utm_source=site&amp;utm_campaign=guide">Play Cuprea free in your browser</a><span>No download, no account. Works on phones.</span></div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>Cuprea is made by one person. Version 0.9.3.2.</span>
+      <a href="../">Home</a><a href="../guide/">Guide</a><a href="../reference/">Reference</a><a href="../updates/">Updates</a>
+      <a href="../privacy.html">Privacy &amp; terms</a><a href="https://discord.gg/RqNg62fHZJ" rel="noopener">Discord (13+)</a>
+    </div>
+  </footer>
+</body>
+</html>
