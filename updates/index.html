@@ -97,6 +97,7 @@ footer a { color: var(--muted); }
       <ul>
         <li><b>0.9.3.1</b> Settings → Theme has a High contrast option: white ground, black outlines and text, stronger borders and a clearer grid. A tester asked for it.</li>
         <li><b>0.9.3.2</b> The game now asks how each of the first levels felt (one tap, a line if you like), and if nothing reaches the Hub for a few minutes a Stuck? note offers quick checks and a way to tell the developer what you're building.</li>
+        <li><b>0.9.3.5</b> Bug reports, ideas and comments can no longer get lost on the way. The email service the game used said &quot;Report sent&quot; for some reports it never delivered, so every report now also goes to the game's own server (the one Sync uses), and each carries a short ref id so the two copies count as one. A report counts as sent when either place takes it.</li>
         <li><b>0.9.3.4</b> Throughput goals no longer read &quot;NaN / 60 s&quot; for their first two seconds. Buying an upgrade says what you got. The Hub's hover line no longer offers Copy and Remove; the Sign inspector points at the box below it; the rail's Discord button says 13+ like every other mention; the building inspector opens below the minimap however many rows the top menu takes; the Sandbox Hub's label fits its box; the Production chart's grid lines land on round numbers; Paste says when part of a copy can't go down here; the Bot Bay tip says where the examples are; '1 buildings' is gone. From a second playtest.</li>
         <li><b>0.9.3.3</b> Clicking a Sign no longer throws an error every frame. The level-complete card waits until any other window is closed instead of opening on top of it (an Esc meant for Upgrades used to swallow the card for good). Switching a machine's recipe clears the old wrong-item warning. The level panel and the menu no longer overlap in windows under 1000 px (the menu becomes a ☰ list); the status line sits above the toolbar at every height. The start-of-world zoom is refitted once a tiny window grows. Freeplay throughput goals: a one-second dip no longer resets the Hold timer, and the panel's rounded number is the one that counts. Profiles text, the phone Controls screen (rows wrap; touch-bar wording instead of keys), the Belt tip (one input per belt; Mergers join lines) and a few words fixed. From a full playtest.</li>
       </ul>
@@ -210,7 +211,7 @@ footer a { color: var(--muted); }
   </main>
   <footer>
     <div class="wrap">
-      <span>Cuprea is made by one person. Version 0.9.3.4.</span>
+      <span>Cuprea is made by one person. Version 0.9.3.5.</span>
       <a href="../">Home</a><a href="../guide/">Guide</a><a href="../reference/">Reference</a><a href="../updates/">Updates</a>
       <a href="../privacy.html">Privacy &amp; terms</a><a href="https://discord.gg/RqNg62fHZJ" rel="noopener">Discord (13+)</a>
     </div>
