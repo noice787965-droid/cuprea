@@ -143,18 +143,28 @@ footer a { color: var(--muted); }
       <tr><td>Lay belts</td><td>park a belt ghost, then <b>drag it</b>: belts follow your finger and turn with it · or <b>＋ Place</b> again and again · or hold any tile for a moment, then drag</td></tr>
       <tr><td>Straight line</td><td><b>Line</b> button, then drag</td></tr>
       <tr><td>Rotate</td><td><b>⟳</b> button</td></tr>
+      <tr><td>Recipe or filter item</td><td>tap the machine, then pick it in its panel · or the bar above the toolbar</td></tr>
       <tr><td>Remove</td><td><b>✕</b> button, then tap things · drag from a building to clear a whole stretch · <b>✓ Done</b> when you're finished</td></tr>
+      <tr><td>Undo / redo</td><td><b>↶ Undo</b> button</td></tr>
+      <tr><td>Cancel anything</td><td><b>✓ Done</b> button</td></tr>
       <tr><th colspan="2">Select and copy</th></tr>
       <tr><td>Select buildings</td><td><b>▭</b> button, then drag</td></tr>
+      <tr><td>Copy / cut</td><td><b>⧉ Copy</b> / <b>✂ Cut</b> buttons, once something is selected</td></tr>
+      <tr><td>Paste (⟳ rotates)</td><td><b>📋 Paste</b> button, then tap where it goes</td></tr>
+      <tr><td>Delete the selection</td><td><b>🗑 Delete</b> button</td></tr>
+      <tr><td>Keep the copy as a blueprint</td><td>☰ menu → <b>Blueprints</b></td></tr>
       <tr><th colspan="2">Camera</th></tr>
       <tr><td>Pan</td><td>drag with one finger, any time</td></tr>
       <tr><td>Zoom</td><td>pinch</td></tr>
+      <tr><td>Back to the Hub</td><td>☰ menu → <b>Hub</b></td></tr>
+      <tr><td>Map and bookmarks</td><td>☰ menu → <b>Map</b></td></tr>
+      <tr><td>Flow view (belts by fullness, machines by how busy)</td><td>☰ menu → <b>Flow</b></td></tr>
     </table></div>
     <h3>How things work</h3>
     <ul>
       <li><b>Machines:</b> click one to see its recipe, what it holds, and why it's stuck</li>
       <li><b>Badges:</b> amber dots = waiting for input · red bar = output blocked · a crossed-out item = wrong item: the machine can't use what's on its belt, and the belt behind it waits</li>
-      <li><b>Belts:</b> join from the sides · one belt carries 240 items/min</li>
+      <li><b>Belts:</b> one belt carries 240 items/min · a belt takes one input: from behind, or from one side when nothing feeds it from behind · to join two lines use a Merger</li>
       <li><b>Hub:</b> keeps up to 100 of each item · the rest sells for coins · Hub Extensions (level 5) make it bigger: place them touching the Hub, in any shape</li>
       <li><b>Costs:</b> buildings cost items from the Hub · upgrades cost coins</li>
       <li><b>Tunnels:</b> place the entrance, then the exit up to 4 tiles ahead, facing the same way</li>
@@ -207,7 +217,7 @@ footer a { color: var(--muted); }
       <h3>Tips</h3>
       <ul>
         <li>A <b>Sawmill</b> <kbd>5</kbd> turns 2 wood into 1 plank. It eats 60 wood a minute, so feed it two extractors.</li>
-        <li>An <b>Assembler</b> <kbd>6</kbd> set to Gear eats 60 iron plates a minute: two furnaces' worth. Belts can join a belt from the side.</li>
+        <li>An <b>Assembler</b> <kbd>6</kbd> set to Gear eats 60 iron plates a minute: two furnaces' worth. A belt takes one input: from behind, or from one side when nothing feeds it from behind. To join two lines, use a <b>Merger</b> (level 4).</li>
         <li>Press <kbd>B</kbd> for the Recipe book (<kbd>B</kbd> or <kbd>Esc</kbd> closes it). Its planner tells you how many machines any rate needs.</li>
       </ul>
       
@@ -338,7 +348,7 @@ footer a { color: var(--muted); }
   </main>
   <footer>
     <div class="wrap">
-      <span>Cuprea is made by one person. Version 0.9.3.2.</span>
+      <span>Cuprea is made by one person. Version 0.9.3.3.</span>
       <a href="../">Home</a><a href="../guide/">Guide</a><a href="../reference/">Reference</a><a href="../updates/">Updates</a>
       <a href="../privacy.html">Privacy &amp; terms</a><a href="https://discord.gg/RqNg62fHZJ" rel="noopener">Discord (13+)</a>
     </div>
